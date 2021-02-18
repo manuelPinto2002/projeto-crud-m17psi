@@ -62,6 +62,7 @@ route::get('/produtos/{id}/edit', 'App\http\Controllers\ProdutosController@edit'
 route::patch('/produtos', 'App\http\Controllers\ProdutosController@update')->name('produtos.update')->middleware('auth');
 route::get('/vendedores/{id}/edit', 'App\http\Controllers\VendedoresController@edit')->name('vendedores.edit')->middleware('auth');
 route::patch('/vendedores', 'App\http\Controllers\VendedoresController@update')->name('vendedores.update')->middleware('auth');
+
 route::get('/encomendas_produtos/{id}/edit', 'App\http\Controllers\encomendas_produtosController@edit')->name('encomendas_produtos.edit')->middleware('auth');
 route::patch('/encomendas_produtos', 'App\http\Controllers\encomendas_produtosController@update')->name('encomendas_produtos.update')->middleware('auth');
 
@@ -76,8 +77,9 @@ route::get('/produtos/{id}/delete', 'App\http\Controllers\ProdutosController@del
 route::delete('/produtos', 'App\http\Controllers\ProdutosController@destroy')->name('produtos.destroy')->middleware('auth');
 route::get('/vendedores/{id}/delete', 'App\http\Controllers\VendedoresController@delete')->name('vendedores.delete')->middleware('auth');
 route::delete('/vendedores', 'App\http\Controllers\VendedoresController@destroy')->name('vendedores.destroy')->middleware('auth');
-route::get('/encomendas_produtos/{id}/delete', 'App\http\Controllers\encomendas_produtosController@delete')->name('encomendas_produtos.delete')->middleware('auth');
-route::delete('/encomendas_produtos', 'App\http\Controllers\encomendas_produtosController@destroy')->name('encomendas_produtos.destroy')->middleware('auth');
+
+route::get('/encomendas_produtos/{id}/delete', 'App\http\Controllers\Encomendas_produtosController@delete')->name('encomendas_produtos.delete')->middleware('auth');
+route::delete('/encomendas_produtos', 'App\http\Controllers\Encomendas_produtosController@destroy')->name('encomendas_produtos.destroy')->middleware('auth');
 
 
 

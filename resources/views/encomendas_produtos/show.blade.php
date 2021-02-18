@@ -11,4 +11,9 @@ Quantidade: {{$encomenda_produto->quantidade}}<br>
 Preço: {{$encomenda_produto->preco}}<br>
 Desconto: {{$encomenda_produto->Desconto}}<br>
 
+
+           <a href="{{route('encomendas_produtos.edit',['id'=>$encomenda_produto->id_encomenda_produto])}}">Editar</a>
+
+           <a href="{{route('encomendas_produtos.delete',['id'=>$encomenda_produto->id_encomenda_produto])}}">Eliminar</a>
+
 @endsection

@@ -18,7 +18,7 @@ return $this->hasMany('App\Models\Cliente', 'id_cliente');
         'id_cliente',
         'id_vendedor',
         'data',
-        'observacoes',
+        'desconto',
 
   ];
 

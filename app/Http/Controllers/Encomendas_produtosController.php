@@ -21,18 +21,23 @@ public function show (Request $request){
     $idEncomenda_produto=$request->id;
 
 
-	$Encomenda_produto=Encomenda_produto::where('id_Enc_prod',$idEncomenda_produto)->first();
+	$encomenda_produto=Encomenda_produto::where('id_Enc_prod',$idEncomenda_produto)->first();
 
 
 
  return view('encomendas_produtos.show',  ['encomenda_produto'=>$encomenda_produto]);
 }
+public function create() {
+
+	return view ('encomendas_produtos.create');
+}
 public function store(Request $request){
 		$novoEncomenda_produto=$request -> validate ([
-				'id_cliente'=>['required','numeric','min:3','max:20'],
-				'id_vendedor'=>['required','numeric','min:1','max:20'],
-				'data'=>['nullable','date'],
-				'observacoes'=>['nullable','min:3','max:255']
+				'id_produto'=>['required','numeric','min:1','max:20'],
+				'id_encomenda'=>['required','numeric','min:1','max:20'],
+				'quantidade'=>['nullable','min:1','max:10000'],
+				'preco'=>['nullable','min:3','max:100000'],
+				'desconto'=>['nullable','min:1','max:10000']
 	]);
 $encomenda_produto=Encomenda_produto::create($novoEncomenda_produto);
 	return redirect()->route('encomendas_produtos.show',['id'=>$encomenda_produto->id_encomenda_produto]);
@@ -52,10 +57,11 @@ $encomenda_produto=Encomenda_produto::findOrFail($idEncomenda);
 
 $autalizarEncomenda_produto=$request -> validate ([
 		
-				'id_cliente'=>['required','numeric','min:3','max:20'],
-				'id_vendedor'=>['required','numeric','min:1','max:20'],
-				'data'=>['nullable','date'],
-				'observacoes'=>['nullable','min:3','max:255']
+				'id_produto'=>['required','numeric','min:1','max:20'],
+				'id_encomenda'=>['required','numeric','min:1','max:20'],
+				'quantidade'=>['nullable','min:1','max:10000'],
+				'preco'=>['nullable','min:3','max:100000'],
+				'desconto'=>['nullable','min:1','max:10000']
 	]);
 $encomenda_produto->update($autalizarEncomenda_produto);
 

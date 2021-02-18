@@ -20,6 +20,7 @@
  	</table>
 @endforeach
 </ul>
+<a href="{{route('encomendas_produtos.create')}}">criar</a>
 {{$encomendas_produtos->render()}}
 @endsection
 

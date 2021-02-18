@@ -6,14 +6,30 @@
 	<title>clientes</title>
 </head>
 <body>
-<form action="{{route('encomendas.update',['id'=>$encomenda->id_encomenda])}}" method="post">
+<form action="{{route('encomendas_produtos.update',['id'=>$encomenda_produto->id_encomenda_produto])}}" method="post">
 	@csrf
 
-id cliente: <input type="text" name="id_cliente" value="{{$encomenda->id_cliente}}"><br>
-id vendedor: <input type="text" name="id_vendedor" value="{{$encomenda->id_vendedor}}"><br>
-data: <input type="date" name="data" value="{{$encomenda->data}}"><br>
-observações: <input type="text" name="observacoes" value="{{$encomenda->observacoes}}"><br>
-<input type="submit" value="Enviar">
+
+id produto: <input type="text" name="id_produto" value="{{$encomenda_produto->id_produto}}"><br>
+@if($errors->has('id_produto'))
+	erro produto
+	@endif
+	<br>
+id encomenda: <input type="text" name="id_encomenda" value="{{$encomenda_produto->id_encomenda}}"><br>
+@if($errors->has('id_encomenda'))
+	erro encomendas
+	@endif
+	<br>
+quantidade: <input type="text" name="quantidade" value="{{$encomenda_produto->}}quantidade"><br>
+@if($errors->has('quantidade'))
+	erro quantidade
+	@endif
+	<br>
+	preco: <input type="text" name="preco" value="{{$encomenda_produto->}}preco"><br>
+@if($errors->has('preco'))
+	erro preco
+	@endif
+	<br>
 
 
 
