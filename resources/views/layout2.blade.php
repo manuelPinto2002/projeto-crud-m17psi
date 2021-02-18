@@ -24,7 +24,7 @@
 							 <a class="nav-link" href="{{route('encomendas.index')}}">Encomendas</a>
 						</li>
 						<li class="nav-item">
-							 <a class="nav-link disabled" href="{{route('encomendas_produtos.index')}}">EncomendasProdutos</a>
+							 <a class="nav-link " href="{{route('encomendas_produtos.index')}}">EncomendasProdutos</a>
 						</li>
 						<li class="nav-item active">
 							 <a class="nav-link" href="{{route('produtos.index')}}">Produtos</a>
