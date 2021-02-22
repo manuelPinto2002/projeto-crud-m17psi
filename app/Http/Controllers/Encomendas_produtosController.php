@@ -48,7 +48,12 @@ public function edit (Request $request){
 $idEncomenda_produto=$request->id;
 $encomenda_produto = Encomenda_produto::where('id_encomenda_produto',$idEncomenda_produto)->first();
 
+if (Gate::allows('atualizar-cliente',$cliente)||Gate::allows('admin')) {
+
+
 return view('encomendas_produtos.edit',['encomenda_produto'=>$encomenda_produto]);
+
+}
 }
 
 public function update (Request $request){

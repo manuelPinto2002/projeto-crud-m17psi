@@ -9,7 +9,8 @@ ID_cliente: {{$encomenda->id_cliente}}<br>
 ID_Vendedor: {{$encomenda->id_vendedor}}<br>
 Data: {{$encomenda->data}}
 <br>
-
+if(Gate::allows('atualizar-cliente',$cliente)|| Gate::allows('admin'))
 <a href="{{route('encomendas.edit',['id'=>$encomenda->id_encomenda])}}">Editar</a>
 <a href="{{route('encomendas.delete',['id'=>$encomenda->id_encomenda])}}">Eliminar</a>
+@endif
 @endsection

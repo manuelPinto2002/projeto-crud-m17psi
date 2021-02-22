@@ -39,9 +39,14 @@ $encomenda=Encomenda::create($novoEncomenda);
 
 public function edit (Request $request){
 $idEncomenda=$request->id;
+
 $encomenda = Encomenda::where('id_encomenda',$idEncomenda)->first();
 
+
+if (Gate::allows('atualizar-cliente',$cliente)||Gate::allows('admin')) {
+
 return view('encomendas.edit',['encomenda'=>$encomenda]);
+}
 }
 
 public function update (Request $request){

@@ -48,8 +48,10 @@ $produto=Produto::create($novoProduto);
 public function edit (Request $request){
 $idProduto=$request->id;
 $produto = Produto::where('id_produto',$idProduto)->first();
+if (Gate::allows('atualizar-cliente',$cliente)||Gate::allows('admin')) {
 
   return view('produtos.edit',  ['produto'=>$produto]);
+}
 }
 
 public function update (Request $request){

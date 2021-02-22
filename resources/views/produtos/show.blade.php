@@ -16,6 +16,8 @@ Oberservações: {{$produto->observacoes}}<br>
 </div>
 @endif
 <br>
+if(Gate::allows('atualizar-cliente',$cliente)|| Gate::allows('admin'))
 <a href="{{route('produtos.edit',['id'=>$produto->id_produto])}}">Editar</a>
 <a href="{{route('produtos.delete',['id'=>$produto->id_produto])}}">Eliminar</a>
+@endif
 @endsection

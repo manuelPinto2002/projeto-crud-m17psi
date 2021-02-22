@@ -46,10 +46,11 @@ $vendedor=Vendedor::create($novoVendedor);
 public function edit (Request $request){
 $idVendedor=$request->id;
 $vendedor = Vendedor::where('id_vendedor',$idVendedor)->first();
+if (Gate::allows('atualizar-cliente',$cliente)||Gate::allows('admin')) {
 
   return view('vendedores.edit',  ['vendedor'=>$vendedor]);
 }
-
+}
 public function update (Request $request){
 $idVendedor=$request->id;
 $vendedor=Vendedor::findOrFail($idVendedor);
